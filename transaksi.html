@@ -10,6 +10,34 @@
   <link rel="stylesheet" href="assets/css/lineicons.css" />
   <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .btn-tab {
+      background: transparent;
+      border: none;
+      color: #6c757d;
+      padding: 12px 24px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .btn-tab:hover {
+      background: rgba(255, 255, 255, 0.5);
+      color: #495057;
+    }
+
+    .btn-tab.active {
+      background: white;
+      color: #4A6CF7;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-tab i {
+      font-size: 18px;
+      vertical-align: middle;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,7 +48,7 @@
   <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
       <a href="index.html">
-        <img src="assets/images/logo/logo.svg" alt="logo" />
+        <img src="assets/images/logo/My Duit.png" alt="logo" />
       </a>
     </div>
     <nav class="sidebar-nav">
@@ -277,9 +305,10 @@
                       <td><span class="status-btn close-btn">Keluar</span></td>
                       <td>
                         <div class="action justify-content-end">
-                          <button class="edit" data-bs-toggle="tooltip" title="Edit"><i
-                              class="lni lni-pencil"></i></button>
-                          <button class="text-danger ml-10" data-bs-toggle="tooltip" title="Hapus"><i
+                          <button class="edit" data-bs-toggle="modal" data-bs-target="#modalEditTransaksi"
+                            onclick="editTransaction('21/12/2025', 'Makan & Minum', 'Nasi Goreng Spesial', '25000', 'expense')"
+                            title="Edit"><i class="lni lni-pencil"></i></button>
+                          <button class="text-danger ml-10" onclick="deleteTransaction(this)" title="Hapus"><i
                               class="lni lni-trash-can"></i></button>
                         </div>
                       </td>
@@ -300,8 +329,11 @@
                       <td><span class="status-btn success-btn">Masuk</span></td>
                       <td>
                         <div class="action justify-content-end">
-                          <button class="edit"><i class="lni lni-pencil"></i></button>
-                          <button class="text-danger ml-10"><i class="lni lni-trash-can"></i></button>
+                          <button class="edit" data-bs-toggle="modal" data-bs-target="#modalEditTransaksi"
+                            onclick="editTransaction('20/12/2025', 'Gaji', 'Proyek Desain Freelance', '1500000', 'income')"><i
+                              class="lni lni-pencil"></i></button>
+                          <button class="text-danger ml-10" onclick="deleteTransaction(this)"><i
+                              class="lni lni-trash-can"></i></button>
                         </div>
                       </td>
                     </tr>
@@ -314,73 +346,153 @@
       </div>
     </section>
 
+    <!-- Modal Tambah Transaksi -->
     <div class="modal fade" id="modalTambahTransaksi" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content card-style">
-          <div class="modal-header px-0 border-0">
-            <h5 class="text-bold">Tambah Transaksi Baru</h5>
+          <div class="modal-header border-bottom pb-20">
+            <h5 class="text-bold mb-0">Tambah Transaksi Baru</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body px-0">
+          <div class="modal-body py-4">
+
+            <div class="mb-4">
+              <div class="d-flex gap-2 p-1 bg-light rounded">
+                <button type="button" class="btn btn-tab active flex-fill" data-type="expense"
+                  onclick="switchTab(this, 'add')">
+                  <i class="lni lni-arrow-down-circle me-1"></i> Pengeluaran
+                </button>
+                <button type="button" class="btn btn-tab flex-fill" data-type="income" onclick="switchTab(this, 'add')">
+                  <i class="lni lni-arrow-up-circle me-1"></i> Pemasukan
+                </button>
+              </div>
+              <input type="hidden" id="tipeTransaksiInput" value="expense">
+            </div>
 
             <div class="input-style-1 mb-3">
-              <label>Tipe Transaksi</label>
-            </div>
-            <div class="d-flex gap-4 mb-20">
-              <div class="form-check radio-style">
-                <input class="form-check-input" type="radio" name="tipeTransaksi" id="radioPengeluaran" value="expense"
-                  checked>
-                <label class="form-check-label" for="radioPengeluaran">Pengeluaran</label>
-              </div>
-              <div class="form-check radio-style">
-                <input class="form-check-input" type="radio" name="tipeTransaksi" id="radioPemasukan" value="income">
-                <label class="form-check-label" for="radioPemasukan">Pemasukan</label>
-              </div>
+              <label class="form-label">Tanggal</label>
+              <input type="date" id="inputDate" class="form-control" required>
             </div>
 
-            <div class="input-style-1">
-              <label>Tanggal</label>
-              <input type="date" id="inputDate">
-            </div>
-
-            <div class="select-style-1">
-              <label>Kategori</label>
+            <div class="select-style-1 mb-3">
+              <label class="form-label">Kategori</label>
               <div class="select-position">
-                <select id="kategoriSelect" onchange="checkCustomCategory(this)">
+                <select id="kategoriSelect" class="form-select" onchange="checkCustomCategory(this)" required>
                   <option value="" disabled selected>Pilih Kategori</option>
-                  <option value="makan">Makan & Minum</option>
-                  <option value="transport">Transportasi</option>
-                  <option value="belanja">Belanja Bulanan</option>
-                  <option value="tagihan">Tagihan & Listrik</option>
-                  <option value="gaji">Gaji (Pemasukan)</option>
-                  <option value="custom">+ Buat Kategori Baru...</option>
+                  <option value="makan">🍽️ Makan & Minum</option>
+                  <option value="transport">🚗 Transportasi</option>
+                  <option value="belanja">🛒 Belanja Bulanan</option>
+                  <option value="tagihan">⚡ Tagihan & Listrik</option>
+                  <option value="gaji">💰 Gaji</option>
+                  <option value="custom">➕ Buat Kategori Baru...</option>
                 </select>
               </div>
             </div>
 
-            <div class="input-style-1" id="customCategoryInput" style="display: none;">
-              <label>Nama Kategori Baru</label>
-              <input type="text" placeholder="Misal: Servis Motor">
+            <div class="input-style-1 mb-3" id="customCategoryInput" style="display: none;">
+              <label class="form-label">Nama Kategori Baru</label>
+              <input type="text" class="form-control" placeholder="Contoh: Servis Motor">
             </div>
 
-            <div class="input-style-1">
-              <label>Nominal (Rp)</label>
-              <input type="number" placeholder="0">
+            <div class="input-style-1 mb-3">
+              <label class="form-label">Nominal (Rp)</label>
+              <input type="text" id="inputNominal" class="form-control" placeholder="0" required>
+              <input type="hidden" id="inputNominalValue">
             </div>
 
-            <div class="input-style-1">
-              <label>Deskripsi / Catatan</label>
-              <textarea placeholder="Contoh: Makan siang..." rows="2"></textarea>
+            <div class="input-style-1 mb-0">
+              <label class="form-label">Deskripsi / Catatan</label>
+              <textarea class="form-control" placeholder="Contoh: Makan siang di restoran..." rows="3"></textarea>
             </div>
 
           </div>
-          <div class="modal-footer px-0 border-0">
-            <button type="button" class="main-btn danger-btn-outline btn-hover" data-bs-dismiss="modal">Batal</button>
-            <button type="button" class="main-btn primary-btn btn-hover">Simpan</button>
+          <div class="modal-footer border-top pt-20">
+            <button type="button" class="main-btn danger-btn-outline btn-hover" data-bs-dismiss="modal">
+              <i class="lni lni-close me-1"></i> Batal
+            </button>
+            <button type="button" class="main-btn primary-btn btn-hover" onclick="saveTransaction()">
+              <i class="lni lni-save me-1"></i> Simpan
+            </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal Edit Transaksi -->
+    <div class="modal fade" id="modalEditTransaksi" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content card-style">
+          <div class="modal-header border-bottom pb-20">
+            <h5 class="text-bold mb-0">Edit Transaksi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-4">
+
+            <div class="mb-4">
+              <div class="d-flex gap-2 p-1 bg-light rounded">
+                <button type="button" class="btn btn-tab flex-fill" data-type="expense"
+                  onclick="switchTab(this, 'edit')">
+                  <i class="lni lni-arrow-down-circle me-1"></i> Pengeluaran
+                </button>
+                <button type="button" class="btn btn-tab flex-fill" data-type="income"
+                  onclick="switchTab(this, 'edit')">
+                  <i class="lni lni-arrow-up-circle me-1"></i> Pemasukan
+                </button>
+              </div>
+              <input type="hidden" id="tipeTransaksiInputEdit" value="">
+            </div>
+
+            <div class="input-style-1 mb-3">
+              <label class="form-label">Tanggal</label>
+              <input type="date" id="inputDateEdit" class="form-control" required>
+            </div>
+
+            <div class="select-style-1 mb-3">
+              <label class="form-label">Kategori</label>
+              <div class="select-position">
+                <select id="kategoriSelectEdit" class="form-select" onchange="checkCustomCategoryEdit(this)" required>
+                  <option value="" disabled>Pilih Kategori</option>
+                  <option value="makan">🍽️ Makan & Minum</option>
+                  <option value="transport">🚗 Transportasi</option>
+                  <option value="belanja">🛒 Belanja Bulanan</option>
+                  <option value="tagihan">⚡ Tagihan & Listrik</option>
+                  <option value="gaji">💰 Gaji</option>
+                  <option value="custom">➕ Buat Kategori Baru...</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-style-1 mb-3" id="customCategoryInputEdit" style="display: none;">
+              <label class="form-label">Nama Kategori Baru</label>
+              <input type="text" class="form-control" placeholder="Contoh: Servis Motor">
+            </div>
+
+            <div class="input-style-1 mb-3">
+              <label class="form-label">Nominal (Rp)</label>
+              <input type="text" id="inputNominalEdit" class="form-control" placeholder="0" required>
+              <input type="hidden" id="inputNominalEditValue">
+
+            </div>
+
+            <div class="input-style-1 mb-0">
+              <label class="form-label">Deskripsi / Catatan</label>
+              <textarea id="inputDeskripsiEdit" class="form-control" placeholder="Contoh: Makan siang di restoran..."
+                rows="3"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer border-top pt-20">
+            <button type="button" class="main-btn danger-btn-outline btn-hover" data-bs-dismiss="modal">
+              <i class="lni lni-close me-1"></i> Batal
+            </button>
+            <button type="button" class="main-btn primary-btn btn-hover" onclick="updateTransaction()">
+              <i class="lni lni-checkmark-circle me-1"></i> Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
       <div class="container-fluid">
         <div class="row">
@@ -397,12 +509,54 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // 1. Set Tanggal Default
+    // Set Tanggal Default saat halaman dimuat
     document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('inputDate').valueAsDate = new Date();
     });
 
-    // 2. Logic Kategori Custom
+    // Fungsi untuk format nominal dengan pemisah ribuan (thousand separator)
+    function formatRupiah(value) {
+      return value
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    function bindRupiahInput(inputId, hiddenId) {
+      const input = document.getElementById(inputId);
+      const hidden = document.getElementById(hiddenId);
+
+      input.addEventListener("input", () => {
+        const raw = input.value.replace(/\D/g, "");
+        hidden.value = raw;
+        input.value = raw ? formatRupiah(raw) : "";
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      bindRupiahInput("inputNominal", "inputNominalValue");
+      bindRupiahInput("inputNominalEdit", "inputNominalEditValue");
+    });
+
+    // Fungsi untuk switch tab (Pengeluaran/Pemasukan)
+    function switchTab(button, modalType) {
+      // Remove active class from all tabs in the same modal
+      const parentDiv = button.parentElement;
+      const allTabs = parentDiv.querySelectorAll('.btn-tab');
+      allTabs.forEach(tab => tab.classList.remove('active'));
+
+      // Add active class to clicked tab
+      button.classList.add('active');
+
+      // Update hidden input value
+      const type = button.getAttribute('data-type');
+      if (modalType === 'add') {
+        document.getElementById('tipeTransaksiInput').value = type;
+      } else {
+        document.getElementById('tipeTransaksiInputEdit').value = type;
+      }
+    }
+
+    // Logic Kategori Custom untuk Modal Tambah
     function checkCustomCategory(selectObject) {
       var value = selectObject.value;
       var customInputDiv = document.getElementById("customCategoryInput");
@@ -412,6 +566,108 @@
         customInputDiv.querySelector('input').focus();
       } else {
         customInputDiv.style.display = "none";
+      }
+    }
+
+    // Logic Kategori Custom untuk Modal Edit
+    function checkCustomCategoryEdit(selectObject) {
+      var value = selectObject.value;
+      var customInputDiv = document.getElementById("customCategoryInputEdit");
+
+      if (value === "custom") {
+        customInputDiv.style.display = "block";
+        customInputDiv.querySelector('input').focus();
+      } else {
+        customInputDiv.style.display = "none";
+      }
+    }
+
+    // Fungsi untuk menyimpan transaksi baru
+    function saveTransaction() {
+      // Ambil nilai nominal tanpa format
+      const nominalFormatted = document.getElementById('inputNominal').value;
+      const nominalValue = document.getElementById('inputNominalValue').value;
+
+
+      console.log('Nominal yang disimpan:', nominalValue);
+
+      // Implementasi logika simpan di sini
+      alert('Transaksi berhasil disimpan!\nNominal: Rp ' + nominalFormatted);
+
+      // Tutup modal
+      var modal = bootstrap.Modal.getInstance(document.getElementById('modalTambahTransaksi'));
+      modal.hide();
+
+      // Reset form
+      document.getElementById('inputDate').valueAsDate = new Date();
+      document.getElementById('kategoriSelect').selectedIndex = 0;
+      document.getElementById('inputNominal').value = '';
+    }
+
+    // Fungsi untuk mengisi data ke modal edit
+    function editTransaction(tanggal, kategori, deskripsi, nominal, tipe) {
+      // Konversi tanggal dari DD/MM/YYYY ke YYYY-MM-DD
+      var parts = tanggal.split('/');
+      var dateFormatted = parts[2] + '-' + parts[1] + '-' + parts[0];
+
+      document.getElementById('inputDateEdit').value = dateFormatted;
+
+      // Format nominal dengan pemisah ribuan
+      document.getElementById('inputNominalEdit').value = formatRupiah(nominal);
+      document.getElementById('inputNominalEditValue').value = nominal;
+
+
+      document.getElementById('inputDeskripsiEdit').value = deskripsi;
+
+      // Set tipe transaksi dengan tab
+      const editModal = document.getElementById('modalEditTransaksi');
+      const tabs = editModal.querySelectorAll('.btn-tab');
+      tabs.forEach(tab => {
+        if (tab.getAttribute('data-type') === tipe) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+      document.getElementById('tipeTransaksiInputEdit').value = tipe;
+
+      // Set kategori
+      var kategoriMap = {
+        'Makan & Minum': 'makan',
+        'Transportasi': 'transport',
+        'Belanja Bulanan': 'belanja',
+        'Tagihan & Listrik': 'tagihan',
+        'Gaji': 'gaji'
+      };
+
+      var kategoriValue = kategoriMap[kategori] || 'makan';
+      document.getElementById('kategoriSelectEdit').value = kategoriValue;
+    }
+
+    // Fungsi untuk update transaksi
+    function updateTransaction() {
+      const nominalValue =
+        document.getElementById('inputNominalEditValue').value;
+
+      console.log("Nominal diupdate:", nominalValue);
+
+      alert("Transaksi berhasil diupdate\nRp " +
+        document.getElementById('inputNominalEdit').value
+      );
+
+      bootstrap.Modal.getInstance(
+        document.getElementById('modalEditTransaksi')
+      ).hide();
+    }
+
+
+    // Fungsi untuk hapus transaksi
+    function deleteTransaction(button) {
+      if (confirm('Apakah Anda yakin ingin menghapus transaksi ini?')) {
+        var row = button.closest('tr');
+        row.remove();
+
+        alert('Transaksi berhasil dihapus!');
       }
     }
   </script>

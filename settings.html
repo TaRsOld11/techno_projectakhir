@@ -1,275 +1,486 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengaturan | Aplikasi Keuangan</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/lineicons.css" />
-    <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
-    <div id="preloader">
-      <div class="spinner"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengaturan | Aplikasi Keuangan</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/lineicons.css" />
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .settings-main-card {
+      padding: 0;
+    }
+
+    .settings-item {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.2s;
+    }
+
+    .settings-item:hover {
+      background: #f9fafb;
+    }
+
+    .settings-item i {
+      font-size: 18px;
+      color: #6c757d;
+    }
+
+    .settings-item.danger h6,
+    .settings-item.danger i {
+      color: #dc3545;
+    }
+
+    .settings-user {
+      background: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <aside class="sidebar-nav-wrapper">
+    <div class="navbar-logo">
+      <a href="index.html">
+        <img src="assets/images/logo/My Duit.png" alt="logo" />
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="nav-item">
+          <a href="index.html">
+            <span class="icon"><i class="lni lni-grid-alt"></i></span>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="transaksi.html">
+            <span class="icon"><i class="lni lni-list"></i></span>
+            <span class="text">Transaksi</span>
+          </a>
+        </li>
+
+        <li class="nav-item nav-item-has-children">
+          <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_auth"
+            aria-controls="ddmenu_auth" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14.9211 10.1294C15.1652 9.88534 15.1652 9.48967 14.9211 9.24559L10.7544 5.0789C10.5103 4.83482 10.1147 4.83482 9.87057 5.0789C9.62649 5.32297 9.62649 5.71871 9.87057 5.96278L12.9702 9.06251H1.97916C1.63398 9.06251 1.35416 9.34234 1.35416 9.68751C1.35416 10.0327 1.63398 10.3125 1.97916 10.3125H12.9702L9.87057 13.4123C9.62649 13.6563 9.62649 14.052 9.87057 14.2961C10.1147 14.5402 10.5103 14.5402 10.7544 14.2961L14.9211 10.1294Z" />
+                <path
+                  d="M11.6383 15.18L15.805 11.0133C16.5373 10.2811 16.5373 9.09391 15.805 8.36166L11.6383 4.195C11.2722 3.82888 10.7923 3.64582 10.3125 3.64582V3.02082C10.3125 2.10035 11.0587 1.35416 11.9792 1.35416H16.9792C17.8997 1.35416 18.6458 2.10035 18.6458 3.02082V16.3542C18.6458 17.2747 17.8997 18.0208 16.9792 18.0208H11.9792C11.0587 18.0208 10.3125 17.2747 10.3125 16.3542V15.7292C10.7923 15.7292 11.2722 15.5461 11.6383 15.18Z" />
+              </svg>
+            </span>
+            <span class="text">Auth</span>
+          </a>
+          <ul id="ddmenu_auth" class="collapse dropdown-nav">
+            <li><a href="signin.html"> Sign In </a></li>
+            <li><a href="signup.html"> Sign Up </a></li>
+          </ul>
+        </li>
+
+        <span class="divider">
+          <hr />
+        </span>
+
+        <li class="nav-item active">
+          <a href="settings.html">
+            <span class="icon"><i class="lni lni-cog"></i></span>
+            <span class="text">Pengaturan</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="overlay"></div>
+  <main class="main-wrapper">
+    <header class="header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-6">
+            <div class="header-left d-flex align-items-center">
+              <div class="menu-toggle-btn mr-15">
+                <button id="menu-toggle" class="main-btn primary-btn btn-hover">
+                  <i class="lni lni-chevron-left me-2"></i> Menu
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-7 col-6">
+            <div class="header-right">
+              <div class="profile-box ml-15">
+                <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="profile-info">
+                    <div class="info">
+                      <div class="image">
+                        <img src="assets/images/profile/profile-image.png" alt="" />
+                      </div>
+                      <div>
+                        <h6 class="fw-500">Admin</h6>
+                        <p>User</p>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+                  <li><a href="#0"><i class="lni lni-user"></i> View Profile</a></li>
+                  <li><a href="#0"><i class="lni lni-exit"></i> Sign Out</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="section">
+      <div class="container-fluid">
+        <div class="title-wrapper pt-30 mb-20">
+          <h2>Pengaturan Akun</h2>
+          <p class="text-sm text-gray">Kelola akun dan preferensi aplikasi Anda</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="card-style settings-main-card">
+
+              <!-- Main card -->
+              <div class="settings-user text-center p-30">
+                <img src="assets/images/profile/profile-image.png" class="rounded-circle mb-10" width="90" alt="User" />
+                <h6 class="mb-0">Admin User</h6>
+                <p class="text-sm text-gray">admin@example.com</p>
+              </div>
+
+              <!-- PROFIL -->
+              <button class="settings-item" data-bs-toggle="modal" data-bs-target="#modalProfile">
+                <div>
+                  <h6>Profil Saya</h6>
+                  <p class="text-sm text-gray">Lihat dan ubah identitas akun</p>
+                </div>
+                <i class="lni lni-chevron-right"></i>
+              </button>
+
+              <!-- PASSWORD -->
+              <button class="settings-item" data-bs-toggle="modal" data-bs-target="#modalPassword">
+                <div>
+                  <h6>Ganti Password</h6>
+                  <p class="text-sm text-gray">Perbarui keamanan akun</p>
+                </div>
+                <i class="lni lni-lock"></i>
+              </button>
+
+              <!-- TARGET KEUANGAN -->
+              <button class="settings-item" data-bs-toggle="modal" data-bs-target="#modalBudget">
+                <div>
+                  <h6>Budgeting</h6>
+                  <p class="text-sm text-gray">Atur batas pengeluaran bulanan</p>
+                </div>
+                <i class="lni lni-wallet"></i>
+              </button>
+
+              <!-- KATEGORI -->
+              <button class="settings-item" data-bs-toggle="modal" data-bs-target="#modalKategori">
+                <div>
+                  <h6>Kategori Custom</h6>
+                  <p class="text-sm text-gray">Kelola kategori transaksi manual</p>
+                </div>
+                <i class="lni lni-list"></i>
+              </button>
+
+              <hr>
+
+              <!-- RESET -->
+              <button class="settings-item danger" data-bs-toggle="modal" data-bs-target="#modalReset">
+                <div>
+                  <h6>Reset Semua Data</h6>
+                  <p class="text-sm">Tindakan ini tidak dapat dibatalkan</p>
+                </div>
+                <i class="lni lni-warning"></i>
+              </button>
+
+
+              <!-- SIGN OUT -->
+              <button class="settings-item danger" data-bs-toggle="modal" data-bs-target="#modalSignout">
+                <div>
+                  <h6>Sign Out</h6>
+                  <p class="text-sm">Keluar dari akun ini</p>
+                </div>
+                <i class="lni lni-exit"></i>
+              </button>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal profil -->
+    <div class="modal fade" id="modalProfile" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Profil Saya</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="text-center mb-20">
+              <img src="assets/images/profile/profile-image.png" class="rounded-circle mb-10" width="90">
+              <div>
+                <input type="file" class="form-control form-control-sm">
+              </div>
+            </div>
+
+            <div class="input-style-1">
+              <label>Nama Lengkap</label>
+              <input type="text" value="Admin User">
+            </div>
+
+            <div class="input-style-1">
+              <label>Email</label>
+              <input type="email" value="admin@example.com">
+            </div>
+
+            <div class="input-style-1">
+              <label>Bio</label>
+              <textarea rows="3"></textarea>
+            </div>
+
+            <button class="main-btn primary-btn btn-hover w-100">
+              Simpan Perubahan
+            </button>
+
+          </div>
+        </div>
+      </div>
     </div>
 
-    <aside class="sidebar-nav-wrapper">
-      <div class="navbar-logo">
-        <a href="index.html">
-          <img src="assets/images/logo/logo.svg" alt="logo" />
-        </a>
+
+    <!-- Modal ganti password  -->
+    <div class="modal fade" id="modalPassword" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Ganti Password</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="input-style-1">
+              <label>Password Saat Ini</label>
+              <input type="password">
+            </div>
+
+            <div class="input-style-1">
+              <label>Password Baru</label>
+              <input type="password">
+            </div>
+
+            <div class="input-style-1">
+              <label>Konfirmasi Password</label>
+              <input type="password">
+            </div>
+
+            <button class="main-btn primary-btn btn-hover w-100">
+              Update Password
+            </button>
+
+          </div>
+        </div>
       </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li class="nav-item">
-            <a href="index.html">
-              <span class="icon"><i class="lni lni-grid-alt"></i></span>
-              <span class="text">Dashboard</span>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="transaksi.html">
-              <span class="icon"><i class="lni lni-list"></i></span>
-              <span class="text">Transaksi</span>
-            </a>
-          </li>
+    </div>
 
-          <li class="nav-item nav-item-has-children">
-            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_auth" aria-controls="ddmenu_auth" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.9211 10.1294C15.1652 9.88534 15.1652 9.48967 14.9211 9.24559L10.7544 5.0789C10.5103 4.83482 10.1147 4.83482 9.87057 5.0789C9.62649 5.32297 9.62649 5.71871 9.87057 5.96278L12.9702 9.06251H1.97916C1.63398 9.06251 1.35416 9.34234 1.35416 9.68751C1.35416 10.0327 1.63398 10.3125 1.97916 10.3125H12.9702L9.87057 13.4123C9.62649 13.6563 9.62649 14.052 9.87057 14.2961C10.1147 14.5402 10.5103 14.5402 10.7544 14.2961L14.9211 10.1294Z" />
-                  <path d="M11.6383 15.18L15.805 11.0133C16.5373 10.2811 16.5373 9.09391 15.805 8.36166L11.6383 4.195C11.2722 3.82888 10.7923 3.64582 10.3125 3.64582V3.02082C10.3125 2.10035 11.0587 1.35416 11.9792 1.35416H16.9792C17.8997 1.35416 18.6458 2.10035 18.6458 3.02082V16.3542C18.6458 17.2747 17.8997 18.0208 16.9792 18.0208H11.9792C11.0587 18.0208 10.3125 17.2747 10.3125 16.3542V15.7292C10.7923 15.7292 11.2722 15.5461 11.6383 15.18Z" />
-                </svg>
-              </span>
-              <span class="text">Auth</span>
-            </a>
-            <ul id="ddmenu_auth" class="collapse dropdown-nav">
-              <li><a href="signin.html"> Sign In </a></li>
-              <li><a href="signup.html"> Sign Up </a></li>
-            </ul>
-          </li>
+    <!-- Modal budgeting  -->
+    <div class="modal fade" id="modalBudget" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Budgeting</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
 
-          <span class="divider"><hr /></span>
+            <div class="input-style-1">
+              <label>Batas Bulanan (Rp)</label>
+              <input type="text" id="budgetInput" placeholder="Contoh: 5.000.000" value="5.000.000" />
 
-          <li class="nav-item active">
-            <a href="settings.html">
-              <span class="icon"><i class="lni lni-cog"></i></span>
-              <span class="text">Pengaturan</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-    <div class="overlay"></div>
-    <main class="main-wrapper">
-      <header class="header">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-5 col-md-5 col-6">
-              <div class="header-left d-flex align-items-center">
-                <div class="menu-toggle-btn mr-15">
-                  <button id="menu-toggle" class="main-btn primary-btn btn-hover">
-                    <i class="lni lni-chevron-left me-2"></i> Menu
-                  </button>
-                </div>
-              </div>
+              <input type="hidden" id="budgetValue" value="5000000">
+
             </div>
-            <div class="col-lg-7 col-md-7 col-6">
-              <div class="header-right">
-                <div class="profile-box ml-15">
-                  <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="profile-info">
-                      <div class="info">
-                        <div class="image">
-                          <img src="assets/images/profile/profile-image.png" alt="" />
-                        </div>
-                        <div>
-                          <h6 class="fw-500">Admin</h6>
-                          <p>User</p>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
-                    <li><a href="#0"><i class="lni lni-user"></i> View Profile</a></li>
-                    <li><a href="#0"><i class="lni lni-exit"></i> Sign Out</a></li>
-                  </ul>
-                </div>
-                </div>
+
+            <div class="form-check checkbox-style mb-20">
+              <input class="form-check-input" type="checkbox" checked>
+              <label class="form-check-label">
+                Notifikasi saat mencapai 80%
+              </label>
+            </div>
+
+            <button class="main-btn primary-btn btn-hover w-100">
+              Simpan Target
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal kategori custom  -->
+    <div class="modal fade" id="modalKategori" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Kategori Custom</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <p class="text-sm text-gray mb-15">
+              Kelola kategori transaksi yang Anda buat secara manual.
+            </p>
+
+            <div class="table-wrapper table-responsive mb-20">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Servis Motor</td>
+                    <td class="action justify-content-end">
+                      <button class="text-danger">
+                        <i class="lni lni-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sedekah Jumat</td>
+                    <td class="action justify-content-end">
+                      <button class="text-danger">
+                        <i class="lni lni-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="input-style-1 mb-20">
+              <label>Tambah Kategori Baru</label>
+              <input type="text" placeholder="Contoh: Donasi">
+            </div>
+
+            <button class="main-btn primary-btn btn-hover w-100">
+              Simpan Perubahan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal reset -->
+    <div class="modal fade" id="modalReset" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-danger">Konfirmasi Reset</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body text-center">
+            <i class="lni lni-warning text-danger mb-15" style="font-size:40px"></i>
+            <p>
+              Apakah Anda yakin ingin <strong>menghapus seluruh data</strong>?
+              <br>
+              Tindakan ini tidak bisa dibatalkan.
+            </p>
+            <hr>
+
+            <div class="d-flex gap-10">
+              <button class="main-btn primary-btn w-50" data-bs-dismiss="modal">
+                Batal
+              </button>
+              <button class="main-btn danger-btn w-50">
+                Ya, Reset
+              </button>
             </div>
           </div>
         </div>
-      </header>
-      <section class="section">
-        <div class="container-fluid">
-          <div class="title-wrapper pt-30">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <div class="title">
-                  <h2>Pengaturan</h2>
-                </div>
-              </div>
-            </div>
+      </div>
+    </div>
+
+    <!-- modal signout -->
+    <div class="modal fade" id="modalSignout" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Konfirmasi Sign Out</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card-style settings-card-1 mb-30">
-                <div class="title mb-30 d-flex justify-content-between align-items-center">
-                  <h6>Profil Saya</h6>
-                  <button class="border-0 bg-transparent text-primary">
-                    <i class="lni lni-pencil-alt"></i>
-                  </button>
-                </div>
-                <div class="profile-info">
-                  <div class="d-flex align-items-center mb-30">
-                    <div class="profile-image">
-                      <img src="assets/images/profile/profile-image.png" alt="" />
-                      <div class="update-image">
-                        <input type="file" />
-                        <label for=""><i class="lni lni-camera"></i></label>
-                      </div>
-                    </div>
-                    <div class="profile-meta">
-                      <h5 class="text-bold text-dark mb-10">Admin User</h5>
-                      <p class="text-sm text-gray">Web Developer</p>
-                    </div>
-                  </div>
-                  <div class="input-style-1">
-                    <label>Nama Lengkap</label>
-                    <input type="text" placeholder="Admin User" value="Admin User" />
-                  </div>
-                  <div class="input-style-1">
-                    <label>Email</label>
-                    <input type="email" placeholder="admin@example.com" value="admin@example.com" />
-                  </div>
-                  <div class="input-style-1">
-                    <label>Bio Singkat</label>
-                    <textarea placeholder="Tulis bio singkat..." rows="3"></textarea>
-                  </div>
-                </div>
-                <div class="col-12">
-                    <button class="main-btn primary-btn btn-hover w-100">Simpan Profil</button>
-                </div>
-              </div>
-
-               <div class="card-style mb-30">
-                <h6 class="mb-25">Ganti Password</h6>
-                <div class="input-style-1">
-                    <label>Password Saat Ini</label>
-                    <input type="password" placeholder="********" />
-                </div>
-                <div class="input-style-1">
-                    <label>Password Baru</label>
-                    <input type="password" placeholder="********" />
-                </div>
-                <div class="input-style-1">
-                    <label>Konfirmasi Password Baru</label>
-                    <input type="password" placeholder="********" />
-                </div>
-                <div class="col-12">
-                    <button class="main-btn primary-btn btn-hover w-100">Update Password</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <div class="card-style mb-30">
-                <div class="title d-flex justify-content-between align-items-center mb-20">
-                    <h6>Target Keuangan (Budgeting)</h6>
-                    <span class="status-btn success-btn">Penting</span>
-                </div>
-                <p class="text-sm mb-20">
-                    Tentukan batas pengeluaran bulanan Anda. Ini akan mempengaruhi indikator "Sisa Budget" pada Dashboard.
-                </p>
-                <div class="input-style-1">
-                    <label>Target Pengeluaran Bulanan (Rp)</label>
-                    <input type="number" placeholder="Contoh: 5000000" value="5000000">
-                </div>
-                <div class="form-check checkbox-style mb-20">
-                    <input class="form-check-input" type="checkbox" value="" id="notif-budget" checked />
-                    <label class="form-check-label" for="notif-budget">
-                      Beri peringatan jika pengeluaran mencapai 80%
-                    </label>
-                </div>
-                <div class="col-12">
-                    <button class="main-btn success-btn btn-hover w-100">Simpan Budget</button>
-                </div>
-              </div>
-
-              <div class="card-style mb-30">
-                <h6 class="mb-25">Manajemen Kategori Custom</h6>
-                <p class="text-sm mb-20">Kategori yang Anda buat secara manual.</p>
-                
-                <div class="table-wrapper table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th><h6>Nama Kategori</h6></th>
-                                <th class="text-end"><h6>Aksi</h6></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p class="text-sm">Servis Motor</p>
-                                </td>
-                                <td class="action justify-content-end">
-                                    <button class="text-danger"><i class="lni lni-trash-can"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="text-sm">Sedekah Jumat</p>
-                                </td>
-                                <td class="action justify-content-end">
-                                    <button class="text-danger"><i class="lni lni-trash-can"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="input-style-1 mt-20">
-                   <input type="text" placeholder="+ Tambah Kategori Cepat">
-                </div>
-              </div>
-
-              <div class="card-style mb-30">
-                <h6 class="mb-25">Preferensi Aplikasi</h6>
-                <div class="form-check form-switch toggle-switch mb-30">
-                    <input class="form-check-input" type="checkbox" id="toggleDarkMode">
-                    <label class="form-check-label" for="toggleDarkMode">Mode Gelap (Dark Mode)</label>
-                </div>
-                <div class="form-check form-switch toggle-switch mb-30">
-                    <input class="form-check-input" type="checkbox" id="toggleNotif" checked>
-                    <label class="form-check-label" for="toggleNotif">Notifikasi Email</label>
-                </div>
-                <div class="col-12">
-                    <button class="main-btn danger-btn-outline btn-hover w-100">Reset Semua Data</button>
-                </div>
-              </div>
-
+          <div class="modal-body text-center">
+            <i class="lni lni-exit mb-15" style="font-size:40px"></i>
+            <p>Apakah Anda yakin ingin keluar dari akun ini?</p>
+            <hr>
+            <div class="d-flex gap-10">
+              <button class="main-btn secondary-btn w-50" data-bs-dismiss="modal">
+                Batal
+              </button>
+              <button class="main-btn danger-btn w-50">
+                Sign Out
+              </button>
             </div>
           </div>
         </div>
-      </section>
-      <footer class="footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6 order-last order-md-first">
-              <div class="copyright text-center text-md-start">
-                <p class="text-sm">Designed by PlainAdmin</p>
-              </div>
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 order-last order-md-first">
+            <div class="copyright text-center text-md-start">
+              <p class="text-sm">Designed by PlainAdmin</p>
             </div>
           </div>
         </div>
-      </footer>
-    </main>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+      </div>
+    </footer>
+  </main>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const budgetInput = document.getElementById("budgetInput");
+    const budgetValue = document.getElementById("budgetValue");
+
+    function formatRupiah(angka) {
+      return angka
+        .toString()
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    budgetInput.addEventListener("input", function (e) {
+      const raw = e.target.value.replace(/\D/g, "");
+      budgetValue.value = raw;
+      e.target.value = raw ? formatRupiah(raw) : "";
+    });
+  </script>
+
+</body>
+
 </html>
