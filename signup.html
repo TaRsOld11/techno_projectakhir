@@ -15,179 +15,149 @@
       <div class="spinner"></div>
     </div>
 
-    <aside class="sidebar-nav-wrapper">
-      <div class="navbar-logo">
-        <a href="index.html">
-          <img src="assets/images/logo/My Duit.png" alt="logo" />
-        </a>
+    <main class="content-wrapper">
+      <div class="row g-0 auth-row">
+        <div class="col-lg-6">
+          <div class="auth-cover-wrapper bg-primary-100">
+            <div class="auth-cover">
+              <div class="title text-center">
+                <h1 class="text-primary mb-10">Mulai Perjalanan Anda</h1>
+                <p class="text-medium">
+                  Buat akun baru untuk mulai mengelola keuangan Anda.
+                </p>
+              </div>
+              <div class="cover-image">
+                <img src="assets/images/auth/signup-image.svg" alt="" />
+              </div>
+              <div class="shape-image">
+                <img src="assets/images/auth/shape.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="signup-wrapper">
+            <div class="form-wrapper">
+              <h6 class="mb-15">Daftar Akun Baru</h6>
+              <p class="text-sm mb-25">Isi data diri Anda dengan benar.</p>
+
+              <form id="signupForm">
+                <div class="row">
+                  
+                  <div class="col-12">
+                    <div class="input-style-1">
+                      <label>Nama Lengkap</label>
+                      <input type="text" id="fullName" placeholder="Contoh: Adon Sukasagiri" required />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="input-style-1">
+                      <label>Username</label>
+                      <input type="text" id="username" placeholder="Contoh: adon123 (Tanpa spasi)" required />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="input-style-1">
+                      <label>Email</label>
+                      <input type="email" id="email" placeholder="email@example.com" required />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="input-style-1">
+                      <label>Password</label>
+                      <input type="password" id="password" placeholder="Minimal 8 karakter" required minlength="8" />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-check checkbox-style mb-30">
+                      <input class="form-check-input" type="checkbox" value="" id="checkbox-not-robot" required />
+                      <label class="form-check-label" for="checkbox-not-robot">
+                        Saya bukan robot
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="button-group d-flex justify-content-center flex-wrap">
+                      <button type="submit" class="main-btn primary-btn btn-hover w-100 text-center">
+                        Sign Up
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <div class="singin-option pt-40">
+                <p class="text-sm text-medium text-center text-gray">
+                  Sudah punya akun? <a href="signin.html">Masuk</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li class="nav-item">
-            <a href="index.html">
-              <span class="icon"><i class="lni lni-grid-alt"></i></span>
-              <span class="text">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="transaksi.html">
-              <span class="icon"><i class="lni lni-list"></i></span>
-              <span class="text">Transaksi</span>
-            </a>
-          </li>
-          <li class="nav-item nav-item-has-children">
-            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_auth" aria-controls="ddmenu_auth" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.9211 10.1294C15.1652 9.88534 15.1652 9.48967 14.9211 9.24559L10.7544 5.0789C10.5103 4.83482 10.1147 4.83482 9.87057 5.0789C9.62649 5.32297 9.62649 5.71871 9.87057 5.96278L12.9702 9.06251H1.97916C1.63398 9.06251 1.35416 9.34234 1.35416 9.68751C1.35416 10.0327 1.63398 10.3125 1.97916 10.3125H12.9702L9.87057 13.4123C9.62649 13.6563 9.62649 14.052 9.87057 14.2961C10.1147 14.5402 10.5103 14.5402 10.7544 14.2961L14.9211 10.1294Z" />
-                  <path d="M11.6383 15.18L15.805 11.0133C16.5373 10.2811 16.5373 9.09391 15.805 8.36166L11.6383 4.195C11.2722 3.82888 10.7923 3.64582 10.3125 3.64582V3.02082C10.3125 2.10035 11.0587 1.35416 11.9792 1.35416H16.9792C17.8997 1.35416 18.6458 2.10035 18.6458 3.02082V16.3542C18.6458 17.2747 17.8997 18.0208 16.9792 18.0208H11.9792C11.0587 18.0208 10.3125 17.2747 10.3125 16.3542V15.7292C10.7923 15.7292 11.2722 15.5461 11.6383 15.18Z" />
-                </svg>
-              </span>
-              <span class="text">Auth</span>
-            </a>
-            <ul id="ddmenu_auth" class="collapse show dropdown-nav">
-              <li><a href="signin.html"> Sign In </a></li>
-              <li><a href="signup.html" class="active"> Sign Up </a></li>
-            </ul>
-          </li>
-          <span class="divider"><hr /></span>
-          <li class="nav-item">
-            <a href="settings.html">
-              <span class="icon"><i class="lni lni-cog"></i></span>
-              <span class="text">Pengaturan</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-    <div class="overlay"></div>
-    <main class="main-wrapper">
-      <header class="header">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-5 col-md-5 col-6">
-              <div class="header-left d-flex align-items-center">
-                <div class="menu-toggle-btn mr-15">
-                  <button id="menu-toggle" class="main-btn primary-btn btn-hover">
-                    <i class="lni lni-chevron-left me-2"></i> Menu
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-7 col-6">
-              <div class="header-right">
-                <div class="profile-box ml-15">
-                  <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="profile-info">
-                      <div class="info">
-                        <div class="image"><img src="assets/images/profile/profile-image.png" alt="" /></div>
-                        <div><h6 class="fw-500">Admin</h6><p>User</p></div>
-                      </div>
-                    </div>
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
-                    <li><a href="#0"><i class="lni lni-user"></i> View Profile</a></li>
-                    <li><a href="#0"><i class="lni lni-exit"></i> Sign Out</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section class="section">
-        <div class="container-fluid">
-          <div class="title-wrapper pt-30">
-            </div>
-
-          <div class="row g-0 auth-row">
-            <div class="col-lg-6 mx-auto">
-              <div class="auth-cover-wrapper bg-primary-100">
-                <div class="auth-cover">
-                  <div class="title text-center">
-                    <h1 class="text-primary mb-10">Mulai Perjalanan Anda</h1>
-                    <p class="text-medium">
-                      Buat akun baru untuk mulai mengelola keuangan Anda.
-                    </p>
-                  </div>
-                  <div class="cover-image">
-                    <img src="assets/images/auth/signup-image.svg" alt="" />
-                  </div>
-                  <div class="shape-image">
-                    <img src="assets/images/auth/shape.svg" alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mx-auto">
-              <div class="signup-wrapper">
-                <div class="form-wrapper">
-                  <h6 class="mb-15">Daftar Akun Baru</h6>
-                  <p class="text-sm mb-25">
-                    Isi data diri Anda dengan benar.
-                  </p>
-                  <form action="#">
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="input-style-1">
-                          <label>Nama Lengkap</label>
-                          <input type="text" placeholder="Nama Anda" />
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <div class="input-style-1">
-                          <label>Email</label>
-                          <input type="email" placeholder="email@example.com" />
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <div class="input-style-1">
-                          <label>Password</label>
-                          <input type="password" placeholder="Password" />
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <div class="form-check checkbox-style mb-30">
-                          <input class="form-check-input" type="checkbox" value="" id="checkbox-not-robot" />
-                          <label class="form-check-label" for="checkbox-not-robot">
-                            Saya bukan robot
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <div class="button-group d-flex justify-content-center flex-wrap">
-                          <button class="main-btn primary-btn btn-hover w-100 text-center">
-                            Sign Up
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    </form>
-                  <div class="singin-option pt-40">
-                    <p class="text-sm text-medium text-center text-gray">
-                      Sudah punya akun? <a href="signin.html">Masuk</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-          </div>
-      </section>
-      <footer class="footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6 order-last order-md-first">
-              <div class="copyright text-center text-md-start">
-                <p class="text-sm">Designed by PlainAdmin</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </main>
+
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script src="api.js"></script>
+    <script>
+      document.getElementById('signupForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+
+          // Ambil value dari 4 input
+          const fullName = document.getElementById('fullName').value;
+          const username = document.getElementById('username').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const btn = e.target.querySelector('button');
+
+          // Validasi Password (sesuai gambar: min 8 karakter)
+          if (password.length < 8) {
+              alert("Password minimal 8 karakter sesuai aturan sistem.");
+              return;
+          }
+
+          const originalText = btn.innerText;
+          btn.innerText = "Mendaftarkan...";
+          btn.disabled = true;
+
+          try {
+              const response = await fetch(`${API_BASE_URL}/auth/register`, {
+                  method: 'POST',
+                  headers: getPublicHeaders(),
+                  // SESUAIKAN DENGAN FORMAT GAMBAR POSTMAN KAMU
+                  body: JSON.stringify({ 
+                      username: username,  // string
+                      fullName: fullName,  // string
+                      email: email,        // string
+                      password: password   // string
+                  })
+              });
+
+              const result = await response.json();
+
+              if (response.ok) {
+                  alert("✅ Registrasi Sukses! Silakan Login.");
+                  window.location.href = 'signin.html';
+              } else {
+                  // Tampilkan error spesifik (misal: Username already exists)
+                  const message = result.message || (result.error ? result.error.message : "Gagal Mendaftar");
+                  alert("❌ Gagal: " + message);
+              }
+          } catch (error) {
+              console.error(error);
+              alert("❌ Error Koneksi Server");
+          } finally {
+              btn.innerText = originalText;
+              btn.disabled = false;
+          }
+      });
+    </script>
   </body>
 </html>

@@ -25,200 +25,14 @@
   <!-- ======== Preloader =========== -->
 
   <!-- ======== sidebar-nav start =========== -->
-  <aside class="sidebar-nav-wrapper">
-    <div class="navbar-logo">
-      <a href="index.html">
-        <img src="assets/images/logo/My Duit.png" alt="logo" />
-      </a>
-    </div>
-    <nav class="sidebar-nav">
-      <ul>
-        <li class="nav-item active">
-          <a href="index.html">
-            <span class="icon"><i class="lni lni-grid-alt"></i></span>
-            <span class="text">Dashboard</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="transaksi.html">
-            <span class="icon"><i class="lni lni-list"></i></span>
-            <span class="text">Transaksi</span>
-          </a>
-        </li>
-
-        <li class="nav-item nav-item-has-children">
-          <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_auth"
-            aria-controls="ddmenu_auth" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M14.9211 10.1294C15.1652 9.88534 15.1652 9.48967 14.9211 9.24559L10.7544 5.0789C10.5103 4.83482 10.1147 4.83482 9.87057 5.0789C9.62649 5.32297 9.62649 5.71871 9.87057 5.96278L12.9702 9.06251H1.97916C1.63398 9.06251 1.35416 9.34234 1.35416 9.68751C1.35416 10.0327 1.63398 10.3125 1.97916 10.3125H12.9702L9.87057 13.4123C9.62649 13.6563 9.62649 14.052 9.87057 14.2961C10.1147 14.5402 10.5103 14.5402 10.7544 14.2961L14.9211 10.1294Z" />
-                <path
-                  d="M11.6383 15.18L15.805 11.0133C16.5373 10.2811 16.5373 9.09391 15.805 8.36166L11.6383 4.195C11.2722 3.82888 10.7923 3.64582 10.3125 3.64582V3.02082C10.3125 2.10035 11.0587 1.35416 11.9792 1.35416H16.9792C17.8997 1.35416 18.6458 2.10035 18.6458 3.02082V16.3542C18.6458 17.2747 17.8997 18.0208 16.9792 18.0208H11.9792C11.0587 18.0208 10.3125 17.2747 10.3125 16.3542V15.7292C10.7923 15.7292 11.2722 15.5461 11.6383 15.18Z" />
-              </svg>
-            </span>
-            <span class="text">Auth</span>
-          </a>
-          <ul id="ddmenu_auth" class="collapse dropdown-nav">
-            <li>
-              <a href="signin.html"> Sign In </a>
-            </li>
-            <li>
-              <a href="signup.html"> Sign Up </a>
-            </li>
-          </ul>
-        </li>
-
-        <span class="divider">
-          <hr />
-        </span>
-
-        <li class="nav-item">
-          <a href="settings.html">
-            <span class="icon"><i class="lni lni-cog"></i></span>
-            <span class="text">Pengaturan</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
+  <aside class="sidebar-nav-wrapper" id="sidebar-area"></aside>
   <div class="overlay"></div>
   <!-- ======== sidebar-nav end =========== -->
 
   <!-- ======== main-wrapper start =========== -->
   <main class="main-wrapper">
     <!-- ========== header start ========== -->
-    <header class="header">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-5 col-md-5 col-6">
-            <div class="header-left d-flex align-items-center">
-              <div class="menu-toggle-btn mr-15">
-                <button id="menu-toggle" class="main-btn primary-btn btn-hover">
-                  <i class="lni lni-chevron-left me-2"></i> Menu
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-7 col-md-7 col-6">
-            <div class="header-right">
-              <!-- notification start -->
-              <div class="notification-box ml-15 d-none d-md-flex">
-                <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M11 20.1667C9.88317 20.1667 8.88718 19.63 8.23901 18.7917H13.761C13.113 19.63 12.1169 20.1667 11 20.1667Z"
-                      fill="" />
-                    <path
-                      d="M10.1157 2.74999C10.1157 2.24374 10.5117 1.83333 11 1.83333C11.4883 1.83333 11.8842 2.24374 11.8842 2.74999V2.82604C14.3932 3.26245 16.3051 5.52474 16.3051 8.24999V14.287C16.3051 14.5301 16.3982 14.7633 16.564 14.9352L18.2029 16.6342C18.4814 16.9229 18.2842 17.4167 17.8903 17.4167H4.10961C3.71574 17.4167 3.5185 16.9229 3.797 16.6342L5.43589 14.9352C5.6017 14.7633 5.69485 14.5301 5.69485 14.287V8.24999C5.69485 5.52474 7.60672 3.26245 10.1157 2.82604V2.74999Z"
-                      fill="" />
-                  </svg>
-                  <span></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
-                  <li>
-                    <a href="#0">
-                      <div class="image">
-                        <img src="assets/images/lead/lead-6.png" alt="" />
-                      </div>
-                      <div class="content">
-                        <h6>
-                          John Doe
-                          <span class="text-regular">
-                            comment on a product.
-                          </span>
-                        </h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consect etur adipiscing
-                          elit Vivamus tortor.
-                        </p>
-                        <span>10 mins ago</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <div class="image">
-                        <img src="assets/images/lead/lead-1.png" alt="" />
-                      </div>
-                      <div class="content">
-                        <h6>
-                          Jonathon
-                          <span class="text-regular">
-                            like on a product.
-                          </span>
-                        </h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consect etur adipiscing
-                          elit Vivamus tortor.
-                        </p>
-                        <span>10 mins ago</span>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- notification end -->
-              <!-- profile start -->
-              <div class="profile-box ml-15">
-                <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="profile-info">
-                    <div class="info">
-                      <div class="image">
-                        <img src="assets/images/profile/profile-image.png" alt="" />
-                      </div>
-                      <div>
-                        <h6 class="fw-500">Adam Joe</h6>
-                        <p>Admin</p>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
-                  <li>
-                    <div class="author-info flex items-center !p-1">
-                      <div class="image">
-                        <img src="assets/images/profile/profile-image.png" alt="image">
-                      </div>
-                      <div class="content">
-                        <h4 class="text-sm">Adam Joe</h4>
-                        <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs"
-                          href="#">Email@gmail.com</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#0">
-                      <i class="lni lni-user"></i> View Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="lni lni-alarm"></i> Notifications
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0"> <i class="lni lni-inbox"></i> Messages </a>
-                  </li>
-                  <li>
-                    <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- profile end -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+  <header class="header" id="header-area"></header>
     <!-- ========== header end ========== -->
 
     <!-- ========== section start ========== -->
@@ -242,7 +56,7 @@
               </div>
               <div class="content">
                 <h6 class="mb-10">Total Saldo</h6>
-                <h3 class="text-bold mb-10">Rp 15.250.000</h3>
+                <h3 class="text-bold mb-10" id="totalSaldo">Rp 0</h3>
                 <p class="text-sm text-success">
                   <span class="text-gray">Update: Hari ini</span>
                 </p>
@@ -255,8 +69,8 @@
                 <i class="lni lni-arrow-up"></i>
               </div>
               <div class="content">
-                <h6 class="mb-10">Pemasukan (Bulan Ini)</h6>
-                <h3 class="text-bold mb-10">Rp 8.500.000</h3>
+                <h6 class="mb-10">Pemasukan (Total)</h6>
+                <h3 class="text-bold mb-10" id="totalIncome">Rp 0</h3>
                 <p class="text-sm text-success">
                   <i class="lni lni-arrow-up"></i> +5.45%
                   <span class="text-gray">vs bulan lalu</span>
@@ -270,8 +84,8 @@
                 <i class="lni lni-arrow-down"></i>
               </div>
               <div class="content">
-                <h6 class="mb-10">Pengeluaran (Bulan Ini)</h6>
-                <h3 class="text-bold mb-10">Rp 3.200.000</h3>
+                <h6 class="mb-10">Pengeluaran (Total)</h6>
+                <h3 class="text-bold mb-10" id="totalExpense">Rp 0</h3>
                 <p class="text-sm text-danger">
                   <i class="lni lni-arrow-up"></i> +2.00%
                   <span class="text-gray">vs bulan lalu</span>
@@ -375,7 +189,7 @@
                         <th></th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="recentTransactions">
                       <tr>
                         <td>
                           <p class="text-sm">20 Des 2025</p>
@@ -451,579 +265,177 @@
     <!-- ========== section end ========== -->
 
     <!-- ========== footer start =========== -->
-    <footer class="footer">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 order-last order-md-first">
-            <div class="copyright text-center text-md-start">
-              <p class="text-sm">
-                Designed and Developed by
-                <a href="https://plainadmin.com" rel="nofollow" target="_blank">
-                  PlainAdmin
-                </a>
-              </p>
-            </div>
-          </div>
-          <!-- end col-->
-          <div class="col-md-6">
-            <div class="terms d-flex justify-content-center justify-content-md-end">
-              <a href="#0" class="text-sm">Term & Conditions</a>
-              <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
-            </div>
-          </div>
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- end container -->
-    </footer>
+    <footer class="footer" id="footer-area"></footer>
     <!-- ========== footer end =========== -->
   </main>
   <!-- ======== main-wrapper end =========== -->
 
   <!-- ========= All Javascript files linkup ======== -->
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/Chart.min.js"></script>
-  <script src="assets/js/dynamic-pie-chart.js"></script>
-  <script src="assets/js/moment.min.js"></script>
-  <script src="assets/js/fullcalendar.js"></script>
-  <script src="assets/js/jvectormap.min.js"></script>
-  <script src="assets/js/world-merc.js"></script>
-  <script src="assets/js/polyfill.js"></script>
-  <script src="assets/js/main.js"></script>
+ <script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/Chart.min.js"></script>
+<script src="assets/js/dynamic-pie-chart.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/fullcalendar.js"></script>
+<script src="assets/js/jvectormap.min.js"></script>
+<script src="assets/js/world-merc.js"></script>
+<script src="assets/js/polyfill.js"></script>
+<script src="assets/js/main.js"></script>
 
-  <script>
-    // ======== jvectormap activation
-    var markers = [
-      { name: "Egypt", coords: [26.8206, 30.8025] },
-      { name: "Russia", coords: [61.524, 105.3188] },
-      { name: "Canada", coords: [56.1304, -106.3468] },
-      { name: "Greenland", coords: [71.7069, -42.6043] },
-      { name: "Brazil", coords: [-14.235, -51.9253] },
-    ];
+<script src="api.js"></script>
+<script src="layout.js"></script> 
 
-    var jvm = new jsVectorMap({
-      map: "world_merc",
-      selector: "#map",
-      zoomButtons: true,
+<script>
+    // 1. CEK OTENTIKASI
+    checkAuth(); // Dari api.js
 
-      regionStyle: {
-        initial: {
-          fill: "#d1d5db",
-        },
-      },
+    // Helper: Format Rupiah
+    const formatRupiah = (number) => {
+        return new Intl.NumberFormat('id-ID', { 
+            style: 'currency', 
+            currency: 'IDR',
+            minimumFractionDigits: 0
+        }).format(number);
+    };
 
-      labels: {
-        markers: {
-          render: (marker) => marker.name,
-        },
-      },
+    // Helper: Format Tanggal
+    const formatDate = (dateString) => {
+        const options = { day: 'numeric', month: 'short', year: 'numeric' };
+        return new Date(dateString).toLocaleDateString('id-ID', options);
+    };
 
-      markersSelectable: true,
-      selectedMarkers: markers.map((marker, index) => {
-        var name = marker.name;
+    // ================= MAIN LOGIC =================
+    document.addEventListener("DOMContentLoaded", async function () {
+        
+        try {
+            // Fetch Data Income & Expense (Paralel biar cepat)
+            const [resIncome, resExpense] = await Promise.all([
+                fetch(`${API_BASE_URL}/income-batches`, { headers: getAuthHeaders() }),
+                fetch(`${API_BASE_URL}/expense-batches`, { headers: getAuthHeaders() })
+            ]);
 
-        if (name === "Russia" || name === "Brazil") {
-          return index;
+            const rawIncomes = await resIncome.json();
+            const rawExpenses = await resExpense.json();
+
+            // Normalisasi data (API kadang return object pembungkus)
+            const incomes = rawIncomes.data || rawIncomes;
+            const expenses = rawExpenses.data || rawExpenses;
+
+            // --- 1. HITUNG TOTAL KARTU ---
+            const totalInc = incomes.reduce((sum, item) => sum + parseInt(item.total), 0);
+            const totalExp = expenses.reduce((sum, item) => sum + parseInt(item.total), 0);
+            const saldo = totalInc - totalExp;
+
+            document.getElementById('totalIncome').innerText = formatRupiah(totalInc);
+            document.getElementById('totalExpense').innerText = formatRupiah(totalExp);
+            document.getElementById('totalSaldo').innerText = formatRupiah(saldo);
+
+            // --- 2. UPDATE TABEL TRANSAKSI TERAKHIR ---
+            const allTrans = [
+                ...incomes.map(i => ({...i, type: 'Masuk', class: 'success-btn', nominal: i.total})),
+                ...expenses.map(i => ({...i, type: 'Keluar', class: 'close-btn', nominal: i.total}))
+            ];
+
+            // Sort berdasarkan tanggal terbaru (descending) & ambil 5 teratas
+            // Asumsi API punya field 'createdAt' atau 'date', sesuaikan jika beda
+            allTrans.sort((a, b) => new Date(b.createdAt || b.date) - new Date(a.createdAt || a.date));
+            const recentTrans = allTrans.slice(0, 5);
+
+            const tableBody = document.getElementById('recentTransactions');
+            tableBody.innerHTML = ''; // Reset
+
+            recentTrans.forEach(item => {
+                tableBody.innerHTML += `
+                    <tr>
+                        <td><p class="text-sm">${formatDate(item.createdAt || item.date || new Date())}</p></td>
+                        <td><p class="text-sm">${item.description || '-'}</p></td>
+                        <td><p class="text-sm">${item.description}</p></td>
+                        <td><p class="text-sm">${formatRupiah(item.nominal)}</p></td>
+                        <td><span class="status-btn ${item.class}">${item.type}</span></td>
+                        <td>
+                            <div class="action justify-content-end">
+                                <button class="text-danger"><i class="lni lni-trash-can"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            // --- 3. PREPARE CHART DATA (Bulanan Tahun Ini) ---
+            const currentYear = new Date().getFullYear();
+            const incomePerMonth = new Array(12).fill(0);
+            const expensePerMonth = new Array(12).fill(0);
+
+            incomes.forEach(item => {
+                const d = new Date(item.createdAt || item.date); // Cek field tanggal API
+                if(d.getFullYear() === currentYear) incomePerMonth[d.getMonth()] += parseInt(item.total);
+            });
+
+            expenses.forEach(item => {
+                const d = new Date(item.createdAt || item.date);
+                if(d.getFullYear() === currentYear) expensePerMonth[d.getMonth()] += parseInt(item.total);
+            });
+
+            // --- 4. RENDER CHART 1 (Arus Kas) ---
+            const ctx1 = document.getElementById("Chart1").getContext("2d");
+            new Chart(ctx1, {
+                type: "line",
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agt", "Sep", "Okt", "Nov", "Des"],
+                    datasets: [
+                        {
+                            label: "Pemasukan",
+                            borderColor: "#365CF5",
+                            backgroundColor: "transparent",
+                            data: incomePerMonth,
+                            tension: 0.4,
+                            borderWidth: 3
+                        },
+                        {
+                            label: "Pengeluaran",
+                            borderColor: "#d50100",
+                            backgroundColor: "transparent",
+                            data: expensePerMonth,
+                            tension: 0.4,
+                            borderWidth: 3
+                        }
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'top' } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { display: true, drawBorder: false } },
+                        x: { grid: { display: false } }
+                    }
+                },
+            });
+
+            // --- 5. RENDER CHART 2 (Dummy for now / Expense Categories) ---
+            // Karena endpoint API kategori terpisah, kita pakai data expensePerMonth dulu sebagai visualisasi
+            const ctx2 = document.getElementById("Chart2").getContext("2d");
+            new Chart(ctx2, {
+                type: "bar",
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"],
+                    datasets: [{
+                        label: "Pengeluaran",
+                        backgroundColor: "#365CF5",
+                        borderRadius: 5,
+                        data: expensePerMonth.slice(0, 6) // Ambil 6 bulan pertama
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+        } catch (error) {
+            console.error("Error Dashboard:", error);
+            // Jangan alert error terus-terusan di dashboard, cukup console.log
         }
-      }),
-      markers: markers,
-      markerStyle: {
-        initial: { fill: "#4A6CF7" },
-        selected: { fill: "#ff5050" },
-      },
-      markerLabelStyle: {
-        initial: {
-          fontWeight: 400,
-          fontSize: 14,
-        },
-      },
     });
-    // ====== calendar activation
-    document.addEventListener("DOMContentLoaded", function () {
-      var calendarMiniEl = document.getElementById("calendar-mini");
-      var calendarMini = new FullCalendar.Calendar(calendarMiniEl, {
-        initialView: "dayGridMonth",
-        headerToolbar: {
-          end: "today prev,next",
-        },
-      });
-      calendarMini.render();
-    });
-
-    // DUMMY chart 1 dan 2
-
-    // Data Chart 1 (Arus Kas)
-    const chart1Data = {
-      weekly: {
-        labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
-        income: [500, 700, 400, 600, 800, 1200, 900],
-        expense: [300, 200, 450, 300, 400, 800, 600]
-      },
-      monthly: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agt", "Sep", "Okt", "Nov", "Des"],
-        income: [8000, 8000, 8500, 8000, 9000, 8500, 8000, 8000, 8200, 8500, 9500, 10000],
-        expense: [5000, 4500, 6000, 5500, 5000, 4800, 5200, 5000, 5500, 6000, 7000, 6500]
-      },
-      yearly: {
-        labels: ["2020", "2021", "2022", "2023", "2024", "2025"],
-        income: [90000, 95000, 100000, 110000, 115000, 120000],
-        expense: [70000, 75000, 80000, 85000, 88000, 90000]
-      }
-    };
-
-    // Data Chart 2 (Kategori)
-    const chart2Data = {
-      weekly: {
-        data: [500, 200, 300, 150, 100, 50]
-      },
-      monthly: {
-        data: [1500, 800, 1200, 950, 500, 300]
-      },
-      yearly: {
-        data: [18000, 9600, 14400, 11400, 6000, 3600]
-      }
-    };
-
-    // =========== chart one start (Arus Kas)
-    const ctx1 = document.getElementById("Chart1").getContext("2d");
-    let chart1 = new Chart(ctx1, {
-      type: "line",
-      data: {
-        labels: chart1Data.monthly.labels,
-        datasets: [
-          {
-            label: "Pemasukan",
-            backgroundColor: "transparent",
-            borderColor: "#365CF5",
-            data: chart1Data.monthly.income,
-            pointBackgroundColor: "transparent",
-            pointHoverBackgroundColor: "#365CF5",
-            pointBorderColor: "transparent",
-            pointHoverBorderColor: "#fff",
-            pointHoverBorderWidth: 5,
-            borderWidth: 4,
-            pointRadius: 4,
-            pointHoverRadius: 6,
-            cubicInterpolationMode: "monotone",
-          },
-          {
-            label: "Pengeluaran",
-            backgroundColor: "transparent",
-            borderColor: "#d50100",
-            data: chart1Data.monthly.expense,
-            pointBackgroundColor: "transparent",
-            pointHoverBackgroundColor: "#d50100",
-            pointBorderColor: "transparent",
-            pointHoverBorderColor: "#fff",
-            pointHoverBorderWidth: 5,
-            borderWidth: 4,
-            pointRadius: 4,
-            pointHoverRadius: 6,
-            cubicInterpolationMode: "monotone",
-          }
-        ],
-      },
-      options: {
-        layout: {
-          padding: {
-            left: 20,
-            right: 20,
-            top: 20,
-            bottom: 20
-          }
-        },
-        plugins: {
-          tooltip: {
-            callbacks: {
-              labelColor: function (context) {
-                return {
-                  backgroundColor: context.dataset.borderColor,
-                  color: "#ffffff"
-                };
-              },
-            },
-            intersect: false,
-            backgroundColor: "#f9f9f9",
-            titleColor: "#8F92A1",
-            bodyColor: "#171717",
-            bodyFont: {
-              family: "Plus Jakarta Sans",
-              size: 14,
-              weight: "bold",
-            },
-            borderWidth: 1,
-            borderColor: "#e5e5e5",
-          },
-          legend: {
-            display: true,
-            position: 'top',
-            align: 'end',
-            labels: {
-              usePointStyle: false,
-              boxWidth: 30,
-              boxHeight: 2,
-              padding: 20,
-            }
-          },
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            grid: {
-              display: true,
-              drawBorder: false,
-              color: "rgba(143, 146, 161, .1)",
-            },
-            ticks: {
-              padding: 20,
-            },
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-            },
-            ticks: {
-              padding: 20,
-            },
-          },
-        },
-      },
-    });
-
-    // Fungsi Update Chart 1 
-    function updateChart1(period) {
-      // Update Labels (Sumbu X)
-      chart1.data.labels = chart1Data[period].labels;
-
-      // Update Data (Sumbu Y)
-      chart1.data.datasets[0].data = chart1Data[period].income;
-      chart1.data.datasets[1].data = chart1Data[period].expense;
-
-      // Update Teks Ringkasan 
-      const summaryElement = document.getElementById('chart1Summary');
-      if (period === 'weekly') summaryElement.innerText = "Surplus: Rp 1.500.000";
-      else if (period === 'monthly') summaryElement.innerText = "Surplus: Rp 52.000.000";
-      else summaryElement.innerText = "Surplus: Rp 150.000.000";
-
-      chart1.update();
-    }
-
-    // =========== chart two start (Pengeluaran per Kategori)
-    const ctx2 = document.getElementById("Chart2").getContext("2d");
-    let chart2 = new Chart(ctx2, {
-      type: "bar",
-      data: {
-        labels: ["Makan", "Transport", "Belanja", "Tagihan", "Hiburan", "Lainnya"],
-        datasets: [
-          {
-            label: "Pengeluaran",
-            backgroundColor: "#365CF5",
-            borderRadius: 10,
-            barThickness: 25,
-            maxBarThickness: 30,
-            data: chart2Data.monthly.data,
-          },
-        ],
-      },
-      options: {
-        layout: {
-          padding: {
-            left: 20,
-            right: 20,
-            top: 0,
-            bottom: 0
-          }
-        },
-        plugins: {
-          tooltip: {
-            backgroundColor: "#F3F6F8",
-            titleColor: "#8F92A1",
-            titleFontSize: 12,
-            bodyColor: "#171717",
-            bodyFont: {
-              weight: "bold",
-              size: 14,
-            },
-            displayColors: false,
-            padding: 10,
-            borderColor: "#e5e5e5",
-            borderWidth: 1,
-          },
-          legend: {
-            display: false,
-          },
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            grid: {
-              display: true,
-              drawBorder: false,
-              color: "rgba(143, 146, 161, .1)",
-            },
-            ticks: {
-              padding: 20,
-            },
-          },
-          x: {
-            grid: {
-              display: false,
-              drawBorder: false,
-            },
-            ticks: {
-              padding: 20,
-            },
-          },
-        },
-      },
-    });
-
-    // Fungsi Update Chart 2
-    function updateChart2(period) {
-      chart2.data.datasets[0].data = chart2Data[period].data;
-      chart2.update();
-    }
-
-    // =========== chart three start
-    const ctx3 = document.getElementById("Chart3").getContext("2d");
-    const chart3 = new Chart(ctx3, {
-      type: "line",
-      data: {
-        labels: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-        datasets: [
-          {
-            label: "Revenue",
-            backgroundColor: "transparent",
-            borderColor: "#365CF5",
-            data: [80, 120, 110, 100, 130, 150, 115, 145, 140, 130, 160, 210],
-            pointBackgroundColor: "transparent",
-            pointHoverBackgroundColor: "#365CF5",
-            pointBorderColor: "transparent",
-            pointHoverBorderColor: "#365CF5",
-            pointHoverBorderWidth: 3,
-            pointBorderWidth: 5,
-            pointRadius: 5,
-            pointHoverRadius: 8,
-            fill: false,
-            tension: 0.4,
-          },
-          {
-            label: "Profit",
-            backgroundColor: "transparent",
-            borderColor: "#9b51e0",
-            data: [
-              120, 160, 150, 140, 165, 210, 135, 155, 170, 140, 130, 200,
-            ],
-            pointBackgroundColor: "transparent",
-            pointHoverBackgroundColor: "#9b51e0",
-            pointBorderColor: "transparent",
-            pointHoverBorderColor: "#9b51e0",
-            pointHoverBorderWidth: 3,
-            pointBorderWidth: 5,
-            pointRadius: 5,
-            pointHoverRadius: 8,
-            fill: false,
-            tension: 0.4,
-          },
-          {
-            label: "Order",
-            backgroundColor: "transparent",
-            borderColor: "#f2994a",
-            data: [180, 110, 140, 135, 100, 90, 145, 115, 100, 110, 115, 150],
-            pointBackgroundColor: "transparent",
-            pointHoverBackgroundColor: "#f2994a",
-            pointBorderColor: "transparent",
-            pointHoverBorderColor: "#f2994a",
-            pointHoverBorderWidth: 3,
-            pointBorderWidth: 5,
-            pointRadius: 5,
-            pointHoverRadius: 8,
-            fill: false,
-            tension: 0.4,
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          tooltip: {
-            intersect: false,
-            backgroundColor: "#fbfbfb",
-            titleColor: "#8F92A1",
-            bodyColor: "#272727",
-            titleFont: {
-              size: 16,
-              family: "Plus Jakarta Sans",
-              weight: "400",
-            },
-            bodyFont: {
-              family: "Plus Jakarta Sans",
-              size: 16,
-            },
-            multiKeyBackground: "transparent",
-            displayColors: false,
-            padding: {
-              x: 30,
-              y: 15,
-            },
-            borderColor: "rgba(143, 146, 161, .1)",
-            borderWidth: 1,
-            enabled: true,
-          },
-          title: {
-            display: false,
-          },
-          legend: {
-            display: false,
-          },
-        },
-        layout: {
-          padding: {
-            top: 0,
-          },
-        },
-        responsive: true,
-        // maintainAspectRatio: false,
-        legend: {
-          display: false,
-        },
-        scales: {
-          y: {
-            grid: {
-              display: false,
-              drawTicks: false,
-              drawBorder: false,
-            },
-            ticks: {
-              padding: 35,
-            },
-            max: 350,
-            min: 50,
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              color: "rgba(143, 146, 161, .1)",
-              drawTicks: false,
-              zeroLineColor: "rgba(143, 146, 161, .1)",
-            },
-            ticks: {
-              padding: 20,
-            },
-          },
-        },
-      },
-    });
-    // =========== chart three end
-
-    // ================== chart four start
-    const ctx4 = document.getElementById("Chart4").getContext("2d");
-    const chart4 = new Chart(ctx4, {
-      type: "bar",
-      data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-        datasets: [
-          {
-            label: "",
-            backgroundColor: "#365CF5",
-            borderColor: "transparent",
-            borderRadius: 20,
-            borderWidth: 5,
-            barThickness: 20,
-            maxBarThickness: 20,
-            data: [600, 700, 1000, 700, 650, 800],
-          },
-          {
-            label: "",
-            backgroundColor: "#d50100",
-            borderColor: "transparent",
-            borderRadius: 20,
-            borderWidth: 5,
-            barThickness: 20,
-            maxBarThickness: 20,
-            data: [690, 740, 720, 1120, 876, 900],
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          tooltip: {
-            backgroundColor: "#F3F6F8",
-            titleColor: "#8F92A1",
-            titleFontSize: 12,
-            bodyColor: "#171717",
-            bodyFont: {
-              weight: "bold",
-              size: 16,
-            },
-            multiKeyBackground: "transparent",
-            displayColors: false,
-            padding: {
-              x: 30,
-              y: 10,
-            },
-            bodyAlign: "center",
-            titleAlign: "center",
-            enabled: true,
-          },
-          legend: {
-            display: false,
-          },
-        },
-        layout: {
-          padding: {
-            top: 0,
-          },
-        },
-        responsive: true,
-        // maintainAspectRatio: false,
-        title: {
-          display: false,
-        },
-        scales: {
-          y: {
-            grid: {
-              display: false,
-              drawTicks: false,
-              drawBorder: false,
-            },
-            ticks: {
-              padding: 35,
-              max: 1200,
-              min: 0,
-            },
-          },
-          x: {
-            grid: {
-              display: false,
-              drawBorder: false,
-              color: "rgba(143, 146, 161, .1)",
-              zeroLineColor: "rgba(143, 146, 161, .1)",
-            },
-            ticks: {
-              padding: 20,
-            },
-          },
-        },
-      },
-    });
-    // =========== chart four end
-  </script>
+</script>
 </body>
 
 </html>
