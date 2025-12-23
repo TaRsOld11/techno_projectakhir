@@ -102,54 +102,7 @@
                     </tr>
                   </thead>
                   <tbody id="transactionTableBody">
-                    <tr>
-                      <td>
-                        <p class="text-sm">21/12/2025</p>
-                      </td>
-                      <td>
-                        <p class="text-sm">Makan & Minum</p>
-                      </td>
-                      <td>
-                        <p class="text-sm text-gray">Nasi Goreng Spesial</p>
-                      </td>
-                      <td>
-                        <p class="text-sm text-danger">Rp 25.000</p>
-                      </td>
-                      <td><span class="status-btn close-btn">Keluar</span></td>
-                      <td>
-                        <div class="action justify-content-end">
-                          <button class="edit" data-bs-toggle="modal" data-bs-target="#modalEditTransaksi"
-                            onclick="editTransaction('21/12/2025', 'Makan & Minum', 'Nasi Goreng Spesial', '25000', 'expense')"
-                            title="Edit"><i class="lni lni-pencil"></i></button>
-                          <button class="text-danger ml-10" onclick="deleteTransaction(this)" title="Hapus"><i
-                              class="lni lni-trash-can"></i></button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p class="text-sm">20/12/2025</p>
-                      </td>
-                      <td>
-                        <p class="text-sm">Gaji</p>
-                      </td>
-                      <td>
-                        <p class="text-sm text-gray">Proyek Desain Freelance</p>
-                      </td>
-                      <td>
-                        <p class="text-sm text-success">Rp 1.500.000</p>
-                      </td>
-                      <td><span class="status-btn success-btn">Masuk</span></td>
-                      <td>
-                        <div class="action justify-content-end">
-                          <button class="edit" data-bs-toggle="modal" data-bs-target="#modalEditTransaksi"
-                            onclick="editTransaction('20/12/2025', 'Gaji', 'Proyek Desain Freelance', '1500000', 'income')"><i
-                              class="lni lni-pencil"></i></button>
-                          <button class="text-danger ml-10" onclick="deleteTransaction(this)"><i
-                              class="lni lni-trash-can"></i></button>
-                        </div>
-                      </td>
-                    </tr>
+
                   </tbody>
                 </table>
               </div>
@@ -476,7 +429,7 @@
 
         } catch (error) {
             console.error("Error load transactions:", error);
-            tbody.innerHTML = '<tr><td colspan="6" class="text-center text-danger">Gagal memuat data.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" class="text-center text-danger">Belum ada transaksi.</td></tr>';
         }
     }
 
